@@ -1,0 +1,46 @@
+.list-loader {
+    width:17px;
+}
+
+.list-loader_blockG {
+
+    background-color:#FFFFFF;
+    border:0px solid #777777;
+    float:left;
+    height:12px;
+    margin-left:1px;
+    width:3px;
+    opacity:0.1;
+    -webkit-animation-name:bounceG;
+    -webkit-animation-duration:1.3s;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-direction:linear;
+    -webkit-transform:scale(0.7);
+    animation-name:bounceG;
+    animation-duration:1.3s;
+    animation-iteration-count:infinite;
+    animation-direction:linear;
+    transform:scale(0.7);
+
+}
+
+.blockG_1 {
+
+    -webkit-animation-delay:0.39s;
+    animation-delay:0.39s;
+
+}
+
+.blockG_2 {
+    
+    -webkit-animation-delay:0.52s;
+    animation-delay:0.52s;
+
+}
+
+.blockG_3 {
+    
+    -webkit-animation-delay:0.65s;
+    animation-delay:0.65s;
+
+}

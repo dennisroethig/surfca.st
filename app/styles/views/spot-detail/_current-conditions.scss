@@ -1,0 +1,34 @@
+.current-conditions {
+
+	position: relative;
+	width:100%;
+	height:100%;
+	
+	.swell,
+	.period {
+
+		position: absolute;
+		bottom: 0;
+		width:45%;
+		font-size: 54px;
+		line-height: 40px;
+		color:#fff;
+		
+		font-weight: light;
+		
+		span {
+			font-size: 18px;
+		}
+
+	}
+
+	.swell {
+		left: 10px;
+	}
+	
+	.period {
+		right: 10px;
+		text-align: right;
+	}
+
+}

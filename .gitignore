@@ -1,0 +1,9 @@
+/gems
+/node_modules
+/app/bower_components
+/dist
+.bundle
+.tmp
+.sass-cache
+.DS_Store
+Gemfile.lock

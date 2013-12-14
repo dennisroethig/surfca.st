@@ -1,0 +1,36 @@
+
+body {
+
+	margin: 0 auto;
+    
+}
+
+@media (min-width: 768px) {
+	
+	body {
+
+		width: auto;
+		margin-right: 0;
+    	margin-left: 0;
+
+    	.page-wrapper {
+
+    		@include clearfix;
+    		
+    		#content-wrapper {
+    			
+                width:70%;
+    			float: right;
+
+    		}
+
+    		#main-nav {
+
+    			height:100%;
+
+    		}
+
+    	}
+
+	}
+}

@@ -1,0 +1,51 @@
+box: wercker/nodejs
+# Build definition
+build:
+  steps:
+  
+    - npm-install
+    
+    - script:
+        name: install bower
+        code: |
+          sudo npm install -g bower
+          bower install
+          
+    - npm-test
+    
+    - wercker/bundle-install@0.9.1
+    
+    - wercker/grunt@0.0.2:
+        tasks: build
+        
+  after-steps:
+  
+    - wouter/email-notify:
+        from: roethig.dennis@gmail.com
+        to: roethig.dennis@gmail.com
+        username: $EMAIL_USERNAME
+        password: $EMAIL_PASSWORD
+        host: smtp.gmail.com:587
+
+
+deploy:
+  steps:
+  
+    - wercker/bundle-install@0.9.1
+    
+    - script:
+        name: write env var
+        code: |-
+          export CAP_PRIVATE_KEY=`mktemp`
+          echo -e $WERCKER_CAP_PRIVATE_KEY > $CAP_PRIVATE_KEY
+          
+    - cap
+    
+  after-steps:
+  
+    - wouter/email-notify:
+        from: roethig.dennis@gmail.com
+        to: roethig.dennis@gmail.com
+        username: $EMAIL_USERNAME
+        password: $EMAIL_PASSWORD
+        host: smtp.gmail.com:587

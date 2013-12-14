@@ -1,0 +1,5 @@
+@mixin arrows-sprite($name, $dimensions: true, $pad: 0) {
+
+  @include retina-sprite($name, $arrows-sprites, $arrows-sprites2x, $dimensions, $pad);
+
+}

@@ -1,0 +1,56 @@
+
+// OPEN/CLOSE KEYFRAMES
+@-webkit-keyframes content_hide {
+    0% {margin-left: 0;}
+    70% {margin-left: 283px;}
+    98% {margin-left: 278px;}
+    100% {margin-left: 280px;}
+}
+
+@-webkit-keyframes content_show {
+    0% {margin-left: 280px;}
+    100% {margin-left: 0;}
+}
+
+
+// LOADER KEYFRAMES
+@-webkit-keyframes hide_loader {
+    0% {
+        opacity: 1;
+        left: 50%;
+    }
+    99% {
+        opacity: 0;
+        left: 50%;
+    }
+    100% {
+        opacity: 0;
+        left: -100%;
+    }
+}
+
+@-webkit-keyframes bounceG{
+    0%{
+        -webkit-transform:scale(1.2);
+        opacity:1;
+    }
+
+    100%{
+        -webkit-transform:scale(0.7);
+        opacity:0.1;
+    }
+
+}
+
+@keyframes bounceG{
+    0%{
+        transform:scale(1.2);
+        opacity:1;
+    }
+
+    100%{
+        transform:scale(0.7);
+        opacity:0.1;
+    }
+
+}

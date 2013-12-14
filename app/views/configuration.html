@@ -1,0 +1,28 @@
+<div class="configuration-wrapper">
+	<!-- <legend>Swell:</legend> -->
+	<div id="group">
+		<fieldset class="switch">
+			<input id="swell_yes" name="swell" type="radio" ng-checked="checkedElement('swell', 'ft')" ng-click="changedConfig('swell', 'ft')">
+			<label for="swell_yes" class="first">ft</label>
+
+			<input id="swell_no" name="swell" type="radio" ng-checked="checkedElement('swell', 'm')" ng-click="changedConfig('swell', 'm')">	
+			<label for="swell_no">m</label>
+
+			<span class="switch-button"></span>
+		</fieldset>
+	</div>
+
+	<!-- <legend>Wind:</legend> -->
+	<div id="group">
+		<fieldset class="switch">
+			<input id="wind_yes" name="view" type="radio" ng-checked="checkedElement('wind', 'kmh')" ng-click="changedConfig('wind', 'kmh')">
+			<label for="wind_yes" class="first">kmh</label>
+
+			<input id="wind_no" name="view" type="radio" ng-checked="checkedElement('wind', 'mph')" ng-click="changedConfig('wind', 'mph')">	
+			<label for="wind_no">mph</label>
+
+			<span class="switch-button"></span>
+		</fieldset>
+	</div>
+
+</div>

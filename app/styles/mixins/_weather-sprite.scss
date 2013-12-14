@@ -1,0 +1,5 @@
+@mixin weather-sprite($name, $dimensions: true, $pad: 0) {
+
+  @include retina-sprite($name, $weather-sprites, $weather-sprites2x, $dimensions, $pad);
+
+}

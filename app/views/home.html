@@ -1,0 +1,20 @@
+
+<!-- <p>nearest spot: {{nearestSpot.name}} {{nearestSpot.roundedDistance}}</p> -->
+
+<section class="tiles">
+	<ul>
+
+		<li ng-repeat="spot in spotsToShow" >
+			
+			<a href="#/{{spot.continent}}/{{spot.country}}/{{spot.name}}"
+				class="map-tile"
+				style="background-image: url('http://maps.googleapis.com/maps/api/staticmap?sensor=false&zoom=8&size=200x200&scale=2&maptype=roadmap&center={{spot.latitude}},{{spot.longitude}}&markers=color:blue|{{spot.latitude}},{{spot.longitude}}')">
+
+				<span class="name">{{spot.name}} - {{spot.distanceRounded}} km</span>
+				
+			</a>
+		</li>
+		
+	</ul>
+</section>
+

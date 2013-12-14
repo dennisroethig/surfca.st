@@ -1,0 +1,105 @@
+
+.configuration-wrapper {
+    padding:20px;
+}
+
+#group {
+
+    position: relative;
+    padding: 20px 10px;
+    border-radius: 5px;
+
+}
+
+
+.checkbox-wrapper {
+
+    background-color: #444;
+    width:179px;
+    @include clearfix;
+
+}
+
+.switch {
+
+    position: relative;
+    border: 0;
+    padding: 0;
+    margin: 0 auto;
+    font-family: helvetica;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #222;  
+    width: 160px;
+    background: rgba(0, 0, 0, 0.5);
+
+}
+
+.switch {
+
+    legend {
+
+        display: none;
+        float: left;
+        width: 40%;
+        padding: 7px 10% 3px 0;
+        text-align: right;
+
+    }
+
+    input {
+    
+        position: absolute;
+        opacity:0;
+
+    }
+
+    label {
+    
+        position: relative;
+        z-index: 2;
+        float:left;
+        width: 80px;
+        height: 32px;
+        line-height: 32px;
+        padding:0;
+        text-align: center;
+        color: #ddd;
+        cursor: pointer;
+        transition: color 0s ease .1s;
+
+    }
+
+    input:checked + label {
+        color: #444;
+    }
+
+    input + label {
+        width: 80px;
+    }
+
+    input:focus + label {
+        outline: none;
+    }
+
+    .switch-button {
+
+        clear: both;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 80px;
+        height: 32px;
+        line-height:32px;
+        margin: 0;
+        background: #f9f9f9;
+        transition: all .2s ease-out;
+
+    }
+
+    input:last-of-type:checked ~ .switch-button {
+        left: 80px;
+    }
+
+}

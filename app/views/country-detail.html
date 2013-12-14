@@ -1,0 +1,8 @@
+<a href="#/{{continentName}}">{{continentName}}</a>
+
+<p>Country:{{countryName}}</p>
+<ul>
+	<li ng-repeat="spot in spotsByCountry" id="{{spot._id}}">
+		<a class="spot-list-link" href="#/{{spot.continent}}/{{spot.country}}/{{spot.name}}">{{spot.name}} - {{spot.country}}</a>
+	</li>
+</ul>

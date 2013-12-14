@@ -1,0 +1,75 @@
+#content-wrapper {
+
+	z-index:3;
+	position: relative;
+	width: 100%;
+	height: 800px;
+	padding-top: 44px;
+	margin-left: 0;
+	background-color: #fff;
+	-webkit-overflow-scrolling: auto;
+	-webkit-perspective: 1000;
+	-webkit-backface-visibility: hidden;
+	@include border-radius(3px 3px 0 0);
+	
+	
+	&:after {
+
+		z-index:1;
+		display: block;
+		content:'';
+		width: 100%;
+		height:100%;
+		position: fixed;
+		top:0;
+		left:0;
+		background-image: url('../images/spots/torquay.jpg');
+		background-color: #444;
+		@include background-size(cover);
+
+	}
+
+	&.scroll #content {
+
+		z-index:2;
+		position: fixed;
+		top:44px;
+		left:0;
+		width:100%;
+		overflow-y:scroll;
+		-webkit-overflow-scrolling: touch;
+		-webkit-perspective: 1000;
+		-webkit-backface-visibility: hidden;
+
+	}
+
+	&.show {
+
+	    margin-left: 0;
+
+	}
+
+	&.hide {
+	    
+	    margin-left: 82%;
+
+	}
+
+}
+
+
+#main-nav {
+
+	z-index:1;
+	position: fixed;
+	top: 0;
+	left:0;
+	width:100%;
+	height:100%;
+	overflow-y:scroll;
+	-webkit-perspective: 1000;
+	-webkit-backface-visibility: hidden;
+	background-color: #222;
+
+}
+

@@ -1,0 +1,33 @@
+$PREVIEW-LIST-WIDTH: 32px;
+
+.preview-list {
+
+	@include clearfix;
+	width: $PREVIEW-LIST-WIDTH;
+	margin:0 auto;
+
+	> li {
+
+		position:relative;
+		float: left;
+		width: $PREVIEW-LIST-WIDTH / 8;
+		height: 24px;
+		background-color: transparent;
+
+		span {
+
+			position: absolute;
+			bottom: 0;
+			left:0;
+		    display:block;
+		    width: ($PREVIEW-LIST-WIDTH / 8) - 1;
+		    height: 0;
+		    background-color: rgba(255, 255, 255, 0.8);
+		    text-indent: -9999px;
+		    overflow:hidden;
+
+		}
+
+	}   
+	
+}

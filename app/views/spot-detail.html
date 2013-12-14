@@ -1,0 +1,62 @@
+<section class="current-conditions">
+	
+	<div class="swell">
+		{{currentSwellHeight}}<span>{{currentSwellHeightPrefix}}</span>
+	</div>
+
+	<div class="period">
+		{{currentSwellPeriod}}<span>{{currentSwellPeriodPrefix}}</span>
+	</div>
+
+</section>
+
+<ul class="spot-details-list">
+
+	<li ng-repeat="day in forecastDays"
+		ng-click="toggleDayDetail(day)"
+		ng-class="getHourlyClass(day)">
+
+		<section class="short" >
+			<div>{{day.date|dayName}}</div>
+			<div class="weather-icon weather-code-{{ day.hourly[4].weatherCode }}"></div>
+			<div>{{day.hourly[4].swellHeightOutput}} {{day.hourly[4].swellPeriod_secs}}s</div>
+			<div>{{day.hourly[4].winddir16Point}} {{day.hourly[4].windspeedOutput}}</div>
+			<div>
+				<ul class="preview-list">
+					<li ng-repeat="hour in day.hourly">
+						<span style="height:{{hour.swellHeight_ft|percentage}}%;"></span>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="long">
+			<ul>
+
+				<li>
+					<div class="time">time</div>
+					<div class="swell">swell</div>
+					<div class="wind">wind</div>
+				</li>
+				<li ng-repeat="hour in day.hourly">
+					<div class="time">
+						<span class="light">.</span>
+						<span>{{hour.time|printTimecode}}</span>
+					</div>
+					<div class="swell">
+						<span>{{hour.swellHeightOutput}}</span>
+						<span>{{hour.swellPeriod_secs}}s</span>
+					</div>
+					<div class="wind">
+						<span>{{hour.windspeedOutput}}</span>
+						<span class="arrow {{hour|windClass:offshore}}" style="{{hour|windRotation}}"></span>
+					</div>
+				</li>
+			</ul>
+		</section>
+
+	</li>
+
+</ul>
+
+

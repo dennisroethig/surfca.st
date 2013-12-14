@@ -1,0 +1,146 @@
+<!doctype html>
+<html ng-app="surfcast" manifest="manifest.appcache">
+
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>surfca.st - mobile surf forecasting</title>
+        <meta name="description" content="mobile surf forecast"/>
+        <meta name="viewport" id="vp" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" />
+        <meta name="viewport" id="vp" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)" />
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="surfca.st" />
+        
+        
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="apple-touch-icon-precomposed" href="/images/temp_icon.png" />
+        <!-- provide the splash screens for iPhone 5 and previous -->
+        <!-- <link href="assets/splashs/splash_1096.png" rel="apple-touch-startup-image" media="(device-height: 568px)"> -->
+        <!-- <link href="assets/splashs/splash_iphone_2x.png" rel="apple-touch-startup-image" sizes="640x960" media="(device-height: 480px)"> -->
+
+        <!-- build:css({.tmp,app}) styles/styles.css -->
+        <link rel="stylesheet" href="styles/styles.css">
+        <!-- endbuild -->
+
+        <script type="text/javascript">
+            window.addEventListener('load', function(e) {
+                window.applicationCache.addEventListener('updateready', function(e) {
+                    if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+                        window.applicationCache.swapCache();
+                        if (confirm('A new version of this site is available.')) {
+                            window.location.reload();
+                        }
+                    }
+                }, false);
+            }, false);
+        </script>
+
+    </head>
+    <body>
+        <div class="container">
+            <div ng-controller="ApplicationCtrl"
+                class="body" 
+                ng-style="bodyStyle">
+                
+                <div id="outer-wrapper"
+                    class="page-wrapper" 
+                    ng-class="{true:'in-transition', false:'no-transition'}[applicationStatus.transition]"
+                    ng-style="pageWrapperStyle">
+
+                    <nav id="main-nav"
+                        class="second-wrapper"
+                        ng-class="{'content':'hide', navigation:'show'}[applicationStatus.showing]"
+                        ng-style="navigationStyle">
+
+                        <ul>
+                            <li id="home-link">
+                                <a href="#/">Home</a>
+                            </li>
+                            <li id="config-link">
+                                <a href="#/settings">Settings</a>
+                            </li>
+
+                            <li ng-repeat="spot in spots"
+                                id="{{spot._id}}"
+                                ng-class="getNavigationListClass(spot._id)">
+
+                                <a class="spot-list-link" href="#/{{spot.continent}}/{{spot.country}}/{{spot.name}}">
+                                    {{spot.name}} - {{spot.country}}
+                                </a>
+                                <div class="list-loader">
+                                    <div class="list-loader_blockG blockG_1"></div>
+                                    <div class="list-loader_blockG blockG_2"></div>
+                                    <div class="list-loader_blockG blockG_3"></div>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </nav>
+
+                    <div id="content-wrapper"
+                        class="second-wrapper scroll" 
+                        ng-class="{content:'show', navigation:'hide'}[applicationStatus.showing]"
+                        ng-style="contentWrapperStyle">
+                        
+                        <header id="test-id" class="main-header">
+                            
+                            <a href="#"
+                                ng-click="toggleNavStyle(event)"
+                                id="open-main-nav"
+                                data-target="#main-nav"
+                                class="button header-button">
+                                <span></span>
+                            </a>
+
+                            <h1 class="page-title"
+                                ng-class="{show:'show'}[applicationStatus.currentTitleStatus]">
+                                    {{currentTitle}}
+                            </h1>
+                        </header>
+
+                        <section ng-view
+                            id="content"
+                            ng-style="contentStyle"
+                            hm-drag="onContentDrag($event)"
+                            hm-dragstart="onContentDragStart($event)"
+                            hm-dragend="onContentDragEnd($event)"
+                            src="contentTemplate">
+                        </section>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- build:js scripts/main.js -->
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/fastclick/lib/fastclick.js"></script>
+        <script src="bower_components/hammerjs/dist/hammer.min.js"></script>
+        <script src="bower_components/underscore/underscore.js"></script>
+        <script src="bower_components/depot/depot.js"></script>
+        
+        <script src="scripts/helpers/onPageLoad.js"></script>
+        <script src="scripts/helpers/numToRad.js"></script>
+        
+        <script src="scripts/routes.js"></script>
+        
+        <script src="scripts/filters/dayName.js"></script>
+        <script src="scripts/filters/percentage.js"></script>
+        <script src="scripts/filters/printTimecode.js"></script>
+        <script src="scripts/filters/windClass.js"></script>
+        <script src="scripts/filters/windRotation.js"></script>
+
+        <script src="scripts/directives/hammer.js"></script>
+
+        <script src="scripts/controllers/application.js"></script>
+        <script src="scripts/controllers/home.js"></script>
+        <script src="scripts/controllers/continentDetail.js"></script>
+        <script src="scripts/controllers/countryDetail.js"></script>
+        <script src="scripts/controllers/spotDetail.js"></script>
+        <script src="scripts/controllers/configuration.js"></script>
+        <!-- endbuild -->
+
+    </body>
+</html>

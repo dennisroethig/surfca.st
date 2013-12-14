@@ -1,0 +1,42 @@
+<div ng-controller="ApplicationCtrl"
+	class="body" 
+	ng-style="bodyStyle">
+	
+	<div id="outer-wrapper"
+		class="page-wrapper" 
+		ng-class="{true:'in-transition', false:'no-transition'}[applicationStatus.transition]"
+		ng-style="pageWrapperStyle">
+
+		<nav ng-include
+			id="main-nav"
+			class="second-wrapper"
+			ng-class="{'content':'hide', navigation:'show'}[applicationStatus.showing]"
+			ng-style="navigationStyle"
+			src="navigationTemplate">
+		</nav>
+
+		<div id="content-wrapper"
+			class="second-wrapper scroll" 
+			ng-class="{content:'show', navigation:'hide'}[applicationStatus.showing]"
+			ng-style="contentWrapperStyle">
+			
+			<header ng-include
+				id="test-id"
+				class="main-header"
+				src="headerTemplate">
+			</header>
+
+			<section ng-include
+				id="content"
+				ng-style="contentStyle"
+				hm-drag="onContentDrag($event)"
+				hm-dragstart="onContentDragStart($event)"
+				hm-dragend="onContentDragEnd($event)"
+				src="contentTemplate">
+			</section>
+
+		</div>
+
+	</div>
+
+</div>

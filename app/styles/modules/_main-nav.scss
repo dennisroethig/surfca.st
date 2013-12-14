@@ -1,0 +1,70 @@
+#main-nav {
+
+    li {
+
+        position:relative;
+    	background-color: #222;
+    	border-bottom: 1px solid #050505;
+    	padding: 5px 0;
+        
+        &.active:after {
+
+            content:'';
+            display:block;
+            position: absolute;
+            top:0;
+            left:0;
+            background-color: #d9d9d9;
+            width:2px;
+            height:100%;
+
+        }
+        
+        a {
+
+        	display:block;
+            font-size: 14px;
+            padding: 12px 10px;
+            color: #d9d9d9;
+            text-decoration: none;
+            @include transition-property(padding-left);
+            @include transition-duration(.5s);
+
+        }
+
+        .list-loader {
+
+            display:none;
+            position: absolute;
+            top:19px;
+            left:10px;
+
+        }
+
+        &.loading {
+
+            a {
+                padding: 12px 10px 12px 32px;
+            }
+
+            .list-loader {
+                display:block;
+            }
+
+        }
+
+        &.inactive a {
+            opacity: .3;
+        }
+
+    }
+}
+
+.nav-header {
+
+    background-color: #000;
+    font-size: 14px;
+    color: #c9c9c9;
+    padding: 2px;
+
+}

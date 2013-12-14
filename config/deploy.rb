@@ -1,52 +1,53 @@
 # config/deploy.rb file
 # custom capistrano deply file for simple folder copy to remote server
 
+
 # application name
 set :application, "surfcast"
+
 
 # remote server
 server "surfca.st", :app, :web
  
+
 # user settings
 set :user, "wercker"
 set :use_sudo, false
 set :scm, :none
 set :deploy_via, :copy
 
+
 # folder to be deployed/copied
 set :repository,  "dist"
 
+
 # remote folder
 set :deploy_to, '/var/www/capistrano/surfcast'
+
 
 # ssh settings
 ssh_options[:keys] = [ENV["CAP_PRIVATE_KEY"]]
 ssh_options[:forward_agent] = true
 set :port, 22
+
  
 # disable/overwrite not needed tasks for plain copying
 namespace :deploy do
-
   task :migrate do
     puts "Skipping migrate."
   end
-
   task :finalize_update do
     puts "Skipping finalize_update."
   end
-
   task :start do
     puts "Skipping start."
   end
-
   task :stop do 
     puts "Skipping stop."
   end
-
   task :restart do
     puts "Skipping restart."
   end
-  
 end
 
 

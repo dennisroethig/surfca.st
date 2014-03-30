@@ -8,7 +8,7 @@ surfcast.controller('ApplicationCtrl', ['$scope', '$routeParams', '$http', funct
     // - default loads from http://surfca.st
     // $scope.API_URL = document.location.protocol + '//' + document.location.hostname + (document.location.port !== '' ? ':3000' : '' );
     $scope.API_URL = 'http://surfca.st';
-    
+
 
     // LOCAL VARIABLES
     var navState = 0,

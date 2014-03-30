@@ -11,7 +11,7 @@ build:
           sudo npm install -g bower
           bower install
 
-    - npm-test
+    # - npm-test
 
     - wercker/bundle-install@0.9.1
 

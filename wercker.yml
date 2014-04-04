@@ -27,25 +27,20 @@ build:
         password: $EMAIL_PASSWORD
         host: smtp.gmail.com:587
 
-
 deploy:
   steps:
-
-    - wercker/bundle-install@0.9.1
-
+    - add-to-known_hosts:
+        hostname: 192.241.181.64
+    - mktemp:
+        envvar: PRIVATEKEY_PATH
+    - create-file:
+        name: write key
+        filename: $PRIVATEKEY_PATH
+        content: $WERCKER_PRIVATE
+        overwrite: true
     - script:
-        name: write env var
-        code: |-
-          export CAP_PRIVATE_KEY=`mktemp`
-          echo -e $WERCKER_CAP_PRIVATE_KEY > $CAP_PRIVATE_KEY
-
-    - cap
-
-  after-steps:
-
-    - wouter/email-notify:
-        from: roethig.dennis@gmail.com
-        to: roethig.dennis@gmail.com
-        username: $EMAIL_USERNAME
-        password: $EMAIL_PASSWORD
-        host: smtp.gmail.com:587
+        name: transfer application
+        code: |
+          pwd
+          ls -la
+          scp -i $PRIVATEKEY_PATH -r dist root@192.241.181.64:/home/dennis/dev/applications/surfca.st/

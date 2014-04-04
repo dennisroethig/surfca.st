@@ -43,4 +43,4 @@ deploy:
         code: |
           pwd
           ls -la
-          scp -i $PRIVATEKEY_PATH -r dist root@192.241.181.64:/home/dennis/dev/applications/surfca.st/
+          scp -i $PRIVATEKEY_PATH -r dist root@192.241.181.64:/home/dennis/dev/applications/nodesurfer/public/

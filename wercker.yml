@@ -39,6 +39,9 @@ deploy:
         content: $WERCKER_PRIVATE
         overwrite: true
     - script:
+        name: remove public folder
+        code: ssh -i $PRIVATEKEY_PATH -l root 192.241.181.64 "cd /home/dennis/dev/applications/nodesurfer/ &&  rm -rf public"
+    - script:
         name: transfer application
         code: |
           pwd

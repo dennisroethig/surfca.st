@@ -26,7 +26,6 @@
         "depot": true,
         "FastClick": true,
         "gauges": true,
-        "Hammer": true,
         "surfcast": true
     }
 }
